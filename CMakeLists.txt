@@ -28,6 +28,7 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 set(TS_FILES qGlitchlessLauncher_ru_RU.ts)
+set(QRC_FILES assets.qrc)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -35,6 +36,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         ${TS_FILES}
+        ${QRC_FILES}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
