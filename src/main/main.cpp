@@ -4,8 +4,9 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    MainWindow window;
+    app.setStyleSheet("MainWindow {border-image: url(:/internal/img/background.png) 0 0 0 0 stretch stretch;}");
+    window.show();
+    return app.exec();
 }

@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(qGlitchlessLauncher LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_PREFIX_PATH /Users/nikitakulikov/Qt/5.15.2/clang_64)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
