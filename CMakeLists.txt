@@ -27,14 +27,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
-set(TS_FILES qGlitchlessLauncher_ru_RU.ts)
-set(QRC_FILES assets.qrc)
+file(GLOB_RECURSE TS_FILES src/lang/*.ts)
+file(GLOB_RECURSE QRC_FILES src/assets/*.qrc)
+file(GLOB_RECURSE UI_FILES src/main/*.ui)
+file(GLOB_RECURSE SOURCE_FILES
+        "src/main/*.h"
+        "src/main/*.hpp"
+        "src/main/*.c"
+        "src/main/*.cpp")
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        ${SOURCE_FILES}
+        ${UI_FILES}
         ${TS_FILES}
         ${QRC_FILES}
 )
