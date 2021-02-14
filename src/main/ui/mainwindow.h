@@ -21,6 +21,7 @@ protected:
 private:
     Ui::MainWindow *ui;
     void resizeText(double ratio);
-    void resizeProgressBar();
+
+    void resizeProgressBar(double ratio);
 };
 #endif // MAINWINDOW_H
