@@ -71,3 +71,6 @@ Thumbs.db
 *.dll
 *.exe
 
+#Jetbrains
+.idea
+cmake-build-debug
