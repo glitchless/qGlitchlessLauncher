@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="cursor">
-   <cursorShape>WaitCursor</cursorShape>
+   <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -53,7 +53,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="img">
+       <widget class="QFrame" name="img">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -61,13 +61,39 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/internal/img/background.png) 0 0 0 0 stretch
-                                     stretch;
-                                 </string>
+         <string notr="true">border-image: url(:/internal/img/background.png) 0 0 0 0 stretch;</string>
         </property>
-        <property name="text">
-         <string/>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="closeButton">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>26</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/internal/img/close-btn.png) 0 0 0 0 stretch;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>
@@ -135,6 +161,9 @@
            <width>0</width>
            <height>0</height>
           </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>WaitCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true"/>

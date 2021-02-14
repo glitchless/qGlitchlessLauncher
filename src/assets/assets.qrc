@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/internal">
         <file>img/background.png</file>
+        <file>img/close-btn.png</file>
     </qresource>
 </RCC>
