@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <cmath>
 
-#define DEFAULT_IMAGE_RATIO 1
+#define DEFAULT_IMAGE_RATIO 0.6
 #define DEFAULT_PROGRESS_BAR_W 873
 #define DEFAULT_IMAGE_H 680
 #define DEFAULT_IMAGE_W 960
@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->progressBar->setValue(0);
     //auto flags = windowFlags();
     //setWindowFlags(flags | Qt::FramelessWindowHint);
-    //ui->progressBar->setContentsMargins(100, 100, 100, 100);
 }
 
 bool areDoubleSame(double dFirstVal, double dSecondVal, double maxDiff) {
