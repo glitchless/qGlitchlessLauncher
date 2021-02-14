@@ -97,16 +97,16 @@
       </item>
       <item>
        <widget class="QFrame" name="progressBarContainer">
-           <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>4</verstretch>
-               </sizepolicy>
-           </property>
-           <property name="styleSheet">
-               <string notr="true"/>
-           </property>
-           <property name="frameShape">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>4</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
@@ -118,8 +118,8 @@
          </property>
          <property name="geometry">
           <rect>
-           <x>22</x>
-           <y>0</y>
+           <x>0</x>
+           <y>5</y>
            <width>873</width>
            <height>25</height>
           </rect>
