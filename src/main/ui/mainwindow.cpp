@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QResizeEvent>
 #include <QDebug>
+#include <cmath>
 
 #define DEFAULT_IMAGE_RATIO 1
 #define DEFAULT_IMAGE_H 680
@@ -32,24 +33,35 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     auto oldSize = event->oldSize();
     auto newSize = event->size();
     double currentRatio = 1.0;
+    bool isSizeChanged = false;
     if (oldSize.width() != newSize.width()) {
         currentRatio = (double) newSize.width() / DEFAULT_IMAGE_W;
         auto newHeight = DEFAULT_IMAGE_H * currentRatio;
         QWidget::resize(newSize.width(), newHeight);
+        isSizeChanged = true;
     } else if (oldSize.height() != newSize.height()) {
         currentRatio = (double) newSize.height() / DEFAULT_IMAGE_H;
         auto newWidth = DEFAULT_IMAGE_W * currentRatio;
         QWidget::resize(newWidth, newSize.height());
+        isSizeChanged = true;
     }
 
-    auto font = ui->progressText->font();
-    auto currentFontRatio = (double) font.pointSize() / DEFAULT_TEXT_SIZE;
-    if (areDoubleSame(currentRatio, currentFontRatio, 0.1)) {
+    if (!isSizeChanged) {
         return;
     }
 
-    font.setPointSize(DEFAULT_TEXT_SIZE * currentRatio);
+    resizeText(currentRatio);
+    resizeProgressBar();
+}
+
+void MainWindow::resizeText(double ratio) {
+    auto font = ui->progressText->font();
+    font.setPointSize(DEFAULT_TEXT_SIZE * ratio);
     ui->progressText->setFont(font);
+}
+
+void MainWindow::resizeProgressBar() {
+
 }
 
 MainWindow::~MainWindow() {

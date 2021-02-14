@@ -4,14 +4,12 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main/ui/mainwindow.ui" line="19"/>
-        <location filename="../../cmake-build-debug/qGlitchlessLauncher_autogen/include/ui_mainwindow.h" line="117"/>
+        <location filename="../main/ui/mainwindow.ui" line="28"/>
         <source>MainWindow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/ui/mainwindow.ui" line="81"/>
-        <location filename="../../cmake-build-debug/qGlitchlessLauncher_autogen/include/ui_mainwindow.h" line="119"/>
+        <location filename="../main/ui/mainwindow.ui" line="90"/>
         <source>Загрузка...</source>
         <translation type="unfinished"></translation>
     </message>

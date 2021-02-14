@@ -80,6 +80,7 @@
         </property>
         <property name="font">
          <font>
+          <family>Roboto</family>
           <pointsize>28</pointsize>
          </font>
         </property>
