@@ -3,14 +3,26 @@
 #include <QResizeEvent>
 #include <QDebug>
 
-#define DEFAULT_IMAGE_RATION 0.6
-#define DEFAULT_IMAGE_H (540*DEFAULT_IMAGE_RATION)
-#define DEFAULT_IMAGE_W (960*DEFAULT_IMAGE_RATION)
+#define DEFAULT_IMAGE_RATIO 0.6
+#define DEFAULT_IMAGE_H 680
+#define DEFAULT_IMAGE_W 960
+#define DEFAULT_TEXT_SIZE 28
 
 MainWindow::MainWindow(QWidget *parent)
         : QMainWindow(parent), ui(new Ui::MainWindow) {
-    setBaseSize(DEFAULT_IMAGE_W, DEFAULT_IMAGE_H);
+    setBaseSize(DEFAULT_IMAGE_W * DEFAULT_IMAGE_RATIO,
+                DEFAULT_IMAGE_H * DEFAULT_IMAGE_RATIO);
     ui->setupUi(this);
+    ui->progressBar->setMaximum(0);
+    ui->progressBar->setMinimum(0);
+    ui->progressBar->setValue(0);
+    auto flags = windowFlags();
+    setWindowFlags(flags | Qt::FramelessWindowHint);
+}
+
+
+bool areDoubleSame(double dFirstVal, double dSecondVal, double maxDiff) {
+    return std::fabs(dFirstVal - dSecondVal) < maxDiff;
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event) {
@@ -18,17 +30,25 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 
     auto oldSize = event->oldSize();
     auto newSize = event->size();
+    double currentRatio = 1.0;
     if (oldSize.width() != newSize.width()) {
-        auto currentRatio = (double) newSize.width() / DEFAULT_IMAGE_W;
+        currentRatio = (double) newSize.width() / DEFAULT_IMAGE_W;
         auto newHeight = DEFAULT_IMAGE_H * currentRatio;
         QWidget::resize(newSize.width(), newHeight);
     } else if (oldSize.height() != newSize.height()) {
-        auto currentRatio = (double) newSize.height() / DEFAULT_IMAGE_H;
+        currentRatio = (double) newSize.height() / DEFAULT_IMAGE_H;
         auto newWidth = DEFAULT_IMAGE_W * currentRatio;
         QWidget::resize(newWidth, newSize.height());
-    } else {
-        qDebug() << "MainWindow: Window not changed";
     }
+
+    auto font = ui->progressText->font();
+    auto currentFontRatio = (double) font.pointSize() / DEFAULT_TEXT_SIZE;
+    if (areDoubleSame(currentRatio, currentFontRatio, 0.1)) {
+        return;
+    }
+
+    font.setPointSize(DEFAULT_TEXT_SIZE * currentRatio);
+    ui->progressText->setFont(font);
 }
 
 MainWindow::~MainWindow() {
